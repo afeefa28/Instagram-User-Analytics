@@ -103,13 +103,9 @@ ORDER BY created_at
 LIMIT 5;
 
 
-
-
-
+# Identify users who have never posted a single photo on Instagram
 
 select * from photos;
-
-
 
 
 SELECT 
@@ -131,6 +127,7 @@ FROM
     photos ON likes.user_id = photos.id
 GROUP BY photos.id;
  
+# Determine the winner of the contest and provide their details to the team.
 
 SELECT 
     u.id AS user_id,
@@ -173,6 +170,8 @@ ORDER BY
     num_likes DESC
 LIMIT 1;
 
+# Identify and suggest the top five most commonly used hashtags on the platform.
+
 select * from tags;
 select * from photo_tags;
 
@@ -186,6 +185,8 @@ FROM
 GROUP BY t.id
 ORDER BY frequency DESC
 LIMIT 5;
+
+# Determine the day of the week when most users register on Instagram. Provide insights on when to schedule an ad campaign.
 
 SELECT 
     DAYOFWEEK(created_at) AS weekdays,
@@ -217,6 +218,7 @@ SELECT
         users
     LEFT JOIN photos ON photos.user_id = users.id
     GROUP BY users.id;
+
 #Identify users (potential bots) who have liked every single photo on the site, as this is not typically possible for a normal user.
 
 SELECT 
